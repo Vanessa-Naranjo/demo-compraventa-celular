@@ -1,5 +1,20 @@
 package com.lvnr.demo.objetos.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lvnr.demo.objetos.dto.PersonaDto;
+
 public class PersonaService {
+
+	private List<PersonaDto> personas;
+
+	public void PersonaService() {
+		personas = new ArrayList<>();
+	}
+
+	public List<PersonaDto> getAll() {
+		return personas;
+	}
 
 }

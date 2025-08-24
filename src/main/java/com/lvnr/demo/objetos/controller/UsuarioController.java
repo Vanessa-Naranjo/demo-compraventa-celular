@@ -9,7 +9,7 @@ public class UsuarioController {
 		UsuarioService usuarioService=new UsuarioService();
 		
 		usuarioService.createUsuario("834324j", "Carlos Martinez");
-		usuarioService.createUsuario("834324j", "Carlos Martinez");
+		usuarioService.createUsuario("834324", "Carlos Martinez");
 
 	}
 }
