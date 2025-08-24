@@ -17,4 +17,14 @@ public class PersonaService {
 		return personas;
 	}
 
+	public PersonaDto getByDocumento(String documento) {
+		for (PersonaDto personaDto : personas) {
+			if (personaDto.getDocumento().equals(documento)) {
+				return personaDto;
+			}
+
+		}
+		return null;
+	}
+
 }
