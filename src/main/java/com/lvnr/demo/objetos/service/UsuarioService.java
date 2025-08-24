@@ -9,14 +9,23 @@ public class UsuarioService {
 
 	private List<UsuarioDto> usuarios;
 
-	public UsuarioService () {
-		
-		usuarios=new ArrayList<>();
-		
+	public UsuarioService() {
+
+		usuarios = new ArrayList<>();
+
 	}
-	
-	public List<UsuarioDto> getAll () {
+
+	public List<UsuarioDto> getAll() {
 		return usuarios;
+	}
+
+	public UsuarioDto getByCodigo(String codigo) {
+		for (UsuarioDto usuarioDto : usuarios) {
+			if (usuarioDto.getCodigo().equals(codigo)) {
+				return usuarioDto;
+			}
+		}
+		return null;
 	}
 
 }
