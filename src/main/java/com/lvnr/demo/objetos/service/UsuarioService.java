@@ -28,4 +28,15 @@ public class UsuarioService {
 		return null;
 	}
 
+	public void createUsuario (String codigo, String nombreCompleto) {
+		UsuarioDto usuarioDto=new UsuarioDto();
+		usuarioDto.setCodigo(codigo);
+		usuarioDto.setNombreCompleto(nombreCompleto);
+
+			if (usuarioDto.getCodigo().equals(codigo)){
+				System.out.println("El usuario ya existe");
+			}
+		   this.usuarios.add(usuarioDto);
+	}
+
 }
