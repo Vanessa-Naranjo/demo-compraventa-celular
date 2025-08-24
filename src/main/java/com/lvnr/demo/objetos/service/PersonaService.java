@@ -27,4 +27,12 @@ public class PersonaService {
 		return null;
 	}
 
+	public void createPersona(String documento, String nombreCompleto) {
+		PersonaDto personaDto=new PersonaDto();
+		personaDto.setDocumento(documento);
+		personaDto.setNombreCompleto(nombreCompleto);
+		this.personas.add(personaDto);
+
+	}
+
 }
