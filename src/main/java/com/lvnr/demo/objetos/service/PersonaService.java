@@ -7,12 +7,9 @@ import com.lvnr.demo.objetos.dto.PersonaDto;
 
 public class PersonaService {
 
-	private List<PersonaDto> personas;
+	private List<PersonaDto> personas = new ArrayList<>();
 
-	public void PersonaService() {
-		personas = new ArrayList<>();
-	}
-
+	
 	public List<PersonaDto> getAll() {
 		return personas;
 	}
@@ -28,9 +25,10 @@ public class PersonaService {
 	}
 
 	public void createPersona(String documento, String nombreCompleto) {
-		PersonaDto personaDto=new PersonaDto();
+		PersonaDto personaDto = new PersonaDto();
 		personaDto.setDocumento(documento);
 		personaDto.setNombreCompleto(nombreCompleto);
+		//Falta validar que no exista en la lista
 		this.personas.add(personaDto);
 
 	}

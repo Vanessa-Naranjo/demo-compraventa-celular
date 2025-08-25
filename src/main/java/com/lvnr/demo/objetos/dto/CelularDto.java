@@ -3,9 +3,8 @@ package com.lvnr.demo.objetos.dto;
 public class CelularDto {
 
 	private String marca;
-	private String usuario;
-	private String celular;
-	private int cantidad;
+	private String modelo;
+	private int valor;
 
 	public String getMarca() {
 		return marca;
@@ -15,28 +14,20 @@ public class CelularDto {
 		this.marca = marca;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getModelo() {
+		return modelo;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
 
-	public String getCelular() {
-		return celular;
+	public int getValor() {
+		return valor;
 	}
 
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
-
-	public int getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
+	public void setValor(int valor) {
+		this.valor = valor;
 	}
 
 }

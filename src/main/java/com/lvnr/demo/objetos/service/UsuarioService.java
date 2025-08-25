@@ -7,13 +7,7 @@ import com.lvnr.demo.objetos.dto.UsuarioDto;
 
 public class UsuarioService {
 
-	private List<UsuarioDto> usuarios;
-
-	public UsuarioService() {
-
-		usuarios = new ArrayList<>();
-
-	}
+	private List<UsuarioDto> usuarios = new ArrayList<>();
 
 	public List<UsuarioDto> getAll() {
 		return usuarios;
@@ -32,6 +26,7 @@ public class UsuarioService {
 		UsuarioDto usuarioDto = new UsuarioDto();
 		usuarioDto.setCodigo(codigo);
 		usuarioDto.setNombreCompleto(nombreCompleto);
+		// falta validar que no existe en la lista
 		this.usuarios.add(usuarioDto);
 	}
 
