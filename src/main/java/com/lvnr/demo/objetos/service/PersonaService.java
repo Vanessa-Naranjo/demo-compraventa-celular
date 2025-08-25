@@ -9,7 +9,6 @@ public class PersonaService {
 
 	private List<PersonaDto> personas = new ArrayList<>();
 
-	
 	public List<PersonaDto> getAll() {
 		return personas;
 	}
@@ -28,8 +27,12 @@ public class PersonaService {
 		PersonaDto personaDto = new PersonaDto();
 		personaDto.setDocumento(documento);
 		personaDto.setNombreCompleto(nombreCompleto);
-		//Falta validar que no exista en la lista
-		this.personas.add(personaDto);
+		for (PersonaDto personaDto1 : personas) {
+			if (personaDto1.getDocumento().equals(documento)) {
+				System.out.println("El documento ya existe");
+			}
+			this.personas.add(personaDto);
+		}
 
 	}
 
