@@ -23,11 +23,28 @@ public class UsuarioService {
 	}
 
 	public void createUsuario(String codigo, String nombreCompleto) {
-		UsuarioDto usuarioDto = new UsuarioDto();
-		usuarioDto.setCodigo(codigo);
-		usuarioDto.setNombreCompleto(nombreCompleto);
-		// falta validar que no existe en la lista
-		this.usuarios.add(usuarioDto);
+		UsuarioDto usuarioExiste = getByCodigo(codigo);
+
+		if (usuarioExiste == null) {
+			UsuarioDto usuarioDto = new UsuarioDto();
+			usuarioDto.setCodigo(codigo);
+			usuarioDto.setNombreCompleto(nombreCompleto);
+			this.usuarios.add(usuarioDto);
+
+		} else {
+			System.err.println("El codigo del usuario ya existe " +codigo);
+		}
+		/*
+		 * boolean usuarioExisteV2 = false; for (UsuarioDto usuarioDto : usuarios) {
+		 * 
+		 * if (usuarioDto.getCodigo().equals(codigo)) { usuarioExisteV2 = true; } } if
+		 * (!usuarioExisteV2) { UsuarioDto usuarioDto = new UsuarioDto();
+		 * usuarioDto.setCodigo(codigo); usuarioDto.setNombreCompleto(nombreCompleto);
+		 * this.usuarios.add(usuarioDto);
+		 * 
+		 * }
+		 */
+
 	}
 
 }

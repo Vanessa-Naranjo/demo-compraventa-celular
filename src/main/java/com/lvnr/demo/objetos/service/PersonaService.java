@@ -24,14 +24,16 @@ public class PersonaService {
 	}
 
 	public void createPersona(String documento, String nombreCompleto) {
-		PersonaDto personaDto = new PersonaDto();
-		personaDto.setDocumento(documento);
-		personaDto.setNombreCompleto(nombreCompleto);
-		for (PersonaDto personaDto1 : personas) {
-			if (personaDto1.getDocumento().equals(documento)) {
-				System.out.println("El documento ya existe");
-			}
+		PersonaDto personaExiste = getByDocumento(documento);
+
+		if (personaExiste == null) {
+			PersonaDto personaDto = new PersonaDto();
+			personaDto.setDocumento(documento);
+			personaDto.setNombreCompleto(nombreCompleto);
 			this.personas.add(personaDto);
+		} else {
+
+			System.out.println("El documento ya existe");
 		}
 
 	}

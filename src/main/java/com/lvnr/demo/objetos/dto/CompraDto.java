@@ -2,32 +2,32 @@ package com.lvnr.demo.objetos.dto;
 
 public class CompraDto {
 
-	private String numeroCompra;
-	private String usuario;
-	private String celular;
+	private int numeroCompra;
+	private UsuarioDto usuario;
+	private CelularDto celular;
 	private int cantidad;
 
-	public String getNumeroCompra() {
+	public int getNumeroCompra() {
 		return numeroCompra;
 	}
 
-	public void setNumeroCompra(String numeroCompra) {
+	public void setNumeroCompra(int numeroCompra) {
 		this.numeroCompra = numeroCompra;
 	}
 
-	public String getUsuario() {
+	public UsuarioDto getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(String usuario) {
+	public void setUsuario(UsuarioDto usuario) {
 		this.usuario = usuario;
 	}
 
-	public String getCelular() {
+	public CelularDto getCelular() {
 		return celular;
 	}
 
-	public void setCelular(String celular) {
+	public void setCelular(CelularDto celular) {
 		this.celular = celular;
 	}
 
