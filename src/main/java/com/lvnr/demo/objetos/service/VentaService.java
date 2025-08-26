@@ -5,14 +5,16 @@ import java.util.List;
 
 import com.lvnr.demo.objetos.dto.CelularDto;
 import com.lvnr.demo.objetos.dto.PersonaDto;
+import com.lvnr.demo.objetos.dto.UsuarioDto;
 import com.lvnr.demo.objetos.dto.VentaDto;
 
 public class VentaService {
 
 	private List<VentaDto> ventas = new ArrayList<>();
 
-	public void crearVenta(String numeroVenta, String usuario, String persona, String celular, int cantidad) {
+	public void crearVenta(UsuarioDto usuario, PersonaDto persona, CelularDto celular, int cantidad) {
 		VentaDto ventaDto = new VentaDto();
+		int numeroVenta = ventas.size() + 1;
 		ventaDto.setNumeroVenta(numeroVenta);
 		ventaDto.setUsuario(usuario);
 		ventaDto.setPersona(persona);
@@ -21,36 +23,56 @@ public class VentaService {
 		this.ventas.add(ventaDto);
 	}
 
-	public CelularDto consultarVenta(String marca, String modelo) {
-		CelularDto celularDto = new CelularDto();
-		if (celularDto.getMarca().equals(marca) && (celularDto.getModelo().equals(modelo))) {
-			return celularDto;
+	public VentaDto consultarVenta(String marca, String modelo) {
+		for (VentaDto ventaDto : ventas) {
+			CelularDto celularDto = ventaDto.getCelular();
+			if (celularDto.getMarca().equals(marca) && (celularDto.getModelo().equals(modelo))) {
+				return ventaDto;
+			}
 		}
-
 		return null;
 	}
 
 	public void imprimirVentas() {
-		VentaDto ventaDto = new VentaDto();
-		System.out.println("Número Venta: " + ventaDto.getNumeroVenta());
-		System.out.println("Número Venta: " + ventaDto.getUsuario());
-		System.out.println("Número Venta: " + ventaDto.getPersona());
-		System.out.println("Número Venta: " + ventaDto.getCelular());
-		System.out.println("Número Venta: " + ventaDto.getCantidad());
+		for (VentaDto ventaDto : ventas) {
+			imprimirVenta(ventaDto);
+		}
+
 	}
 
-	public void imprimirVentaNumero(String numeroVenta) {
-		for (VentaDto ventaDto2 : ventas) {
-			System.out.println("Número Venta: " + ventaDto2.getNumeroVenta());
-			System.out.println("Número Venta: " + ventaDto2.getUsuario());
-			System.out.println("Número Venta: " + ventaDto2.getPersona());
-			System.out.println("Número Venta: " + ventaDto2.getCelular());
-			System.out.println("Número Venta: " + ventaDto2.getCantidad());
+	public void imprimirVentaNumero(int numeroVenta) {
+		for (VentaDto ventaDto : ventas) {
+			if (ventaDto.getNumeroVenta() == numeroVenta) {
+				imprimirVenta(ventaDto);
+			}
+
 		}
 	}
 
 	public void imprimirVentaDocumento(String documento) {
-	//	PersonaDto personaDto = new PersonaDto();
+		for (VentaDto ventaDto : ventas) {
+			PersonaDto personaDto = ventaDto.getPersona();
+			if (personaDto.getDocumento().equals(documento)) {
+				imprimirVenta(ventaDto);
+			}
+
+		}
+
+	}
+
+	public void imprimirVenta(VentaDto ventaDto) {
+		UsuarioDto usuarioDto = ventaDto.getUsuario();
+		CelularDto celularDto = ventaDto.getCelular();
+		PersonaDto personaDto = ventaDto.getPersona();
+		System.out.println("Codigo Usuario: " + usuarioDto.getCodigo());
+		System.out.println("Documento Cliente: " + personaDto.getDocumento());
+		System.out.println("Nombre Cliente: " + personaDto.getNombreCompleto());
+		System.out.println("Nombre Usuario: " + usuarioDto.getNombreCompleto());
+		System.out.println("Numero de Venta: " + ventaDto.getNumeroVenta());
+		System.out.println("Marca Celular: " + celularDto.getMarca());
+		System.out.println("Modelo Celular: " + celularDto.getModelo());
+		System.out.println("Valor Celular: " + celularDto.getValor());
+		System.out.println("Cantidad de celulares: " + ventaDto.getCantidad());
 
 	}
 }

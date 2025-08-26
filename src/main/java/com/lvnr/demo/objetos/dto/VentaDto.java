@@ -2,17 +2,17 @@ package com.lvnr.demo.objetos.dto;
 
 public class VentaDto {
 
-	private String numeroVenta;
+	private int numeroVenta;
 	private UsuarioDto usuario;
 	private PersonaDto persona;
 	private CelularDto celular;
 	private int cantidad;
 
-	public String getNumeroVenta() {
+	public int getNumeroVenta() {
 		return numeroVenta;
 	}
 
-	public void setNumeroVenta(String numeroVenta) {
+	public void setNumeroVenta(int numeroVenta) {
 		this.numeroVenta = numeroVenta;
 	}
 
