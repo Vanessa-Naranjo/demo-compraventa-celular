@@ -30,7 +30,7 @@ public class CompraVentaController {
 		personaService.createPersona("634829", "Elena Corredor","VIP");
 		personaService.createPersona("983743", "Eduardo Rodriguez","PREMIUM");
 		personaService.createPersona("103184", "Angie Zarate","INVITADO");
-		PersonaDto personaDto = personaService.getByDocumento("983743");
+		PersonaDto personaDto = personaService.getByDocumento("103184");
 
 		System.out.println("****Crear Celular*****");
 		CelularService celularService = new CelularService();

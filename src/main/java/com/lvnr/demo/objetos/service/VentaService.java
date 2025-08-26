@@ -100,5 +100,35 @@ public class VentaService {
 			System.out.println("El total de la venta es: " + total);
 		}
 
+		System.out.println();
+
+		double valorDescontar1;
+		double total1;
+		double descuentoInvitado1 = 0.05;
+		double descuentoPremium1 = 0.1;
+		double descuentoVip1 = 0.2;
+		double descuento = 0.0;
+
+		switch (personaDto.getTipoPersona()) {
+		case "VIP":
+			descuento = descuentoVip1;
+			break;
+
+		case "PREMIUM":
+			descuento = descuentoPremium1;
+			break;
+
+		case "INVITADO":
+			descuento = descuentoInvitado1;
+			break;
+		default:
+		}
+
+		valorDescontar1 = subtotal * descuento;
+		total1 = subtotal - valorDescontar1;
+
+		System.out.println("El valor a descontar es: " + valorDescontar1);
+		System.out.println("El valor total de la venta es: " + total1);
+
 	}
 }
