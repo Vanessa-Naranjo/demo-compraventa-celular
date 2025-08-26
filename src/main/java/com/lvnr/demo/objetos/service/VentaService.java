@@ -65,14 +65,40 @@ public class VentaService {
 		CelularDto celularDto = ventaDto.getCelular();
 		PersonaDto personaDto = ventaDto.getPersona();
 		System.out.println("Codigo Usuario: " + usuarioDto.getCodigo());
+		System.out.println("Nombre Usuario: " + usuarioDto.getNombreCompleto());
 		System.out.println("Documento Cliente: " + personaDto.getDocumento());
 		System.out.println("Nombre Cliente: " + personaDto.getNombreCompleto());
-		System.out.println("Nombre Usuario: " + usuarioDto.getNombreCompleto());
+		System.out.println("Tipo Cliente: " + personaDto.getTipoPersona());
 		System.out.println("Numero de Venta: " + ventaDto.getNumeroVenta());
 		System.out.println("Marca Celular: " + celularDto.getMarca());
 		System.out.println("Modelo Celular: " + celularDto.getModelo());
 		System.out.println("Valor Celular: " + celularDto.getValor());
 		System.out.println("Cantidad de celulares: " + ventaDto.getCantidad());
+		int subtotal = (celularDto.getValor() * ventaDto.getCantidad());
+		System.out.println("Subtotal de la venta: " + subtotal);
+
+		double descuentoInvitado = 0.05;
+		double descuentoPremium = 0.1;
+		double descuentoVip = 0.2;
+
+		double valorDescontar;
+		double total;
+		if (personaDto.getTipoPersona().equals("VIP")) {
+			valorDescontar = subtotal * descuentoVip;
+			total = subtotal - valorDescontar;
+			System.out.println("El Valor a descontar VIP es: " + valorDescontar);
+			System.out.println("El total de la venta es: " + total);
+		} else if (personaDto.getTipoPersona().equals("PREMIUM")) {
+			valorDescontar = subtotal * descuentoPremium;
+			total = subtotal - valorDescontar;
+			System.out.println("El Valor a descontar PREMIUM es: " + valorDescontar);
+			System.out.println("El total de la venta es: " + total);
+		} else if (personaDto.getTipoPersona().equals("INVITADO")) {
+			valorDescontar = subtotal * descuentoInvitado;
+			total = subtotal - valorDescontar;
+			System.out.println("El Valor a descontar INVITADO es: " + valorDescontar);
+			System.out.println("El total de la venta es: " + total);
+		}
 
 	}
 }

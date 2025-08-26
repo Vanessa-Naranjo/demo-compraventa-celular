@@ -23,13 +23,14 @@ public class PersonaService {
 		return null;
 	}
 
-	public void createPersona(String documento, String nombreCompleto) {
+	public void createPersona(String documento, String nombreCompleto, String tipoPersona) {
 		PersonaDto personaExiste = getByDocumento(documento);
 
 		if (personaExiste == null) {
 			PersonaDto personaDto = new PersonaDto();
 			personaDto.setDocumento(documento);
 			personaDto.setNombreCompleto(nombreCompleto);
+			personaDto.setTipoPersona(tipoPersona);
 			this.personas.add(personaDto);
 		} else {
 
