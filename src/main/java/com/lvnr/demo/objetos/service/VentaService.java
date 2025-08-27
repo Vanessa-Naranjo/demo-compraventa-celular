@@ -100,35 +100,30 @@ public class VentaService {
 			System.out.println("El total de la venta es: " + total);
 		}
 
-		System.out.println();
+		System.out.println("***********SWITCH************");
 
-		double valorDescontar1;
-		double total1;
-		double descuentoInvitado1 = 0.05;
-		double descuentoPremium1 = 0.1;
-		double descuentoVip1 = 0.2;
-		double descuento = 0.0;
+		valorDescontar = 0.0;
 
 		switch (personaDto.getTipoPersona()) {
 		case "VIP":
-			descuento = descuentoVip1;
+			valorDescontar = subtotal * descuentoVip;
 			break;
 
 		case "PREMIUM":
-			descuento = descuentoPremium1;
+			valorDescontar = subtotal * descuentoPremium;
 			break;
 
 		case "INVITADO":
-			descuento = descuentoInvitado1;
+			valorDescontar = subtotal * descuentoInvitado;
 			break;
 		default:
+			break;
 		}
 
-		valorDescontar1 = subtotal * descuento;
-		total1 = subtotal - valorDescontar1;
+		total = subtotal - valorDescontar;
 
-		System.out.println("El valor a descontar es: " + valorDescontar1);
-		System.out.println("El valor total de la venta es: " + total1);
+		System.out.println("El valor a descontar " + personaDto.getTipoPersona() + " es: " + valorDescontar);
+		System.out.println("El valor total de la venta es: " + total);
 
 	}
 }
